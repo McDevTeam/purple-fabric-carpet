@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "id": "carpet-extension",
-  "version": "1.4.6",
+  "id": "purple-carpet",
+  "version": "${version}",
 
-  "name": "Example Carpet Extension Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Purple Carpet",
+  "description": "Purple Carpet Extension, developed by Gnottero and BisUmTo",
   "authors": [
-    "Me!"
+    "Gnottero",
+    "BisUmTo"
   ],
   "contact": {
-    "homepage": "https://web.me/",
-    "sources": "https://github.com/gnembon/fabric-carpet-extension-example-mod"
+    "homepage": "https://github.com/McDevTeam/purple-fabric-carpet",
+    "sources": "https://github.com/McDevTeam/purple-fabric-carpet"
   },
+  "mixins": ["purple.mixins.json"],
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT License",
+  "icon": "assets/purple/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
+      "com.github.mcdevteam.purple.PurpleCarpetExtension"
+    ],
+    "client": [
+      "com.github.mcdevteam.purple.PurpleCarpetClient"
     ]
   },
-  "mixins": [
-    "modid.mixins.json"
-  ],
 
   "depends": {
-    "minecraft": "1.16.x",
-    "fabricloader": ">=0.4.0",
-    "carpet": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "fabricloader": ">=0.11.3",
+    "minecraft": "1.19.x",
+    "java": ">=17"
   }
 }
