@@ -36,7 +36,7 @@ public class PurpleCarpetExtension implements ModInitializer, CarpetExtension {
     @Override
     public void onGameStarted() {
         CarpetServer.settingsManager.parseSettingsClass(PurpleCarpetSettings.class);
-        CarpetServer.settingsManager.printAllRulesToLog("purple");
+        // CarpetServer.settingsManager.printAllRulesToLog(PurpleCarpetSettings.PURPLE);
     }
 
     @Override

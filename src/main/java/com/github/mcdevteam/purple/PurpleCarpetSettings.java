@@ -42,13 +42,13 @@ public class PurpleCarpetSettings {
     public static boolean microphoneNoiseLogger = false;
 
     @Rule(
-            desc = "Solid collision Entity",
+            desc = "Entities will have a solid collision, like Shulkers and boats",
             category = {PURPLE, CLIENT}
     )
     public static boolean solidCollisionEntity = false;
 
     @Rule(
-            desc = "Upside Down Entities",
+            desc = "All Entities will be rendered upside-down, like Dinnerbone",
             category = {PURPLE, CLIENT}
     )
     public static boolean upsideDownEntities = false;

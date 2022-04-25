@@ -1,6 +1,7 @@
 package com.github.mcdevteam.purple;
 
-import com.github.mcdevteam.purple.mixins.GameRenderInvoker;
+import com.github.mcdevteam.purple.networking.OptionsPlayChannelHandler;
+import com.github.mcdevteam.purple.networking.ShadersPlayChannelHandler;
 import com.github.mcdevteam.purple.voice.Microphone;
 import com.github.mcdevteam.purple.voice.NoisePacket;
 import net.fabricmc.api.ClientModInitializer;
@@ -18,13 +19,12 @@ public class PurpleCarpetClient implements ClientModInitializer {
         scheduler.scheduleAtFixedRate(new Microphone(), 0, 50, TimeUnit.MILLISECONDS);
         scheduler.scheduleAtFixedRate(new NoisePacket(), 25, 50, TimeUnit.MILLISECONDS);
 
-        ClientPlayNetworking.registerGlobalReceiver(new ResourceLocation("carpet", "shaders"),
-                (client, handler, buf, responseSender) -> {
-                    ResourceLocation shaderResLoc = buf.readResourceLocation();
-                    client.execute(
-                            () -> ((GameRenderInvoker) client.gameRenderer).invokeLoadEffect(shaderResLoc)
-                    );
-                }
+        ClientPlayNetworking.registerGlobalReceiver(new ResourceLocation("purple_carpet", "shaders"),
+                new ShadersPlayChannelHandler()
+        );
+
+        ClientPlayNetworking.registerGlobalReceiver(new ResourceLocation("purple_carpet", "options"),
+                new OptionsPlayChannelHandler()
         );
     }
 }
